@@ -1,16 +1,10 @@
 package com.example.fury;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.widget.ProgressBar;
-import android.widget.SeekBar;
-import android.widget.TextView;
-
 public class tamagochi {
     private int hungriness = 0;
-    private int happiness = 5;
+    private int happiness = 0;
     private int strength = 0;
-    private int cleanliness = 10;
+    private int cleanliness = 0;
 
     public tamagochi(int hungriness, int happiness, int strength, int cleanliness) {
         this.hungriness = hungriness;
@@ -20,35 +14,48 @@ public class tamagochi {
     }
 
     public void feed() {
-        hungriness +=5;
+        hungriness -=2;
+        strength += 1;
+        happiness+=2;
         if (hungriness<0) {
             hungriness = 0;
+        }
+        if (happiness > 10) {
+            happiness = 10;
+        }
+        if (strength>10) {
+            strength=10;
         }
     }
     public void walk () {
         happiness += 3;
         strength -= 2;
+        cleanliness-=2;
         if (happiness > 10) {
             happiness = 10;
         }
         if (strength<0) {
             strength=0;
         }
+        if (cleanliness<0) {
+            cleanliness=0;
+        }
     }
     public void clean() {
         cleanliness = 10;
+        happiness-=2;
+        if (happiness < 0) {
+            happiness = 0;
+        }
     }
     public void pet() {
-        happiness+=5;
+        happiness+=1;
         if (happiness>10) {
             happiness = 10;
         }
     }
     public void sleep() {
         strength = 10;
-        if (strength>10) {
-            strength = 10;
-        }
     }
 
     public int getHungriness() {
@@ -67,17 +74,6 @@ public class tamagochi {
         return cleanliness;
     }
 
-    public String getMood() {
-        if (strength==0)
-            return "Наелся и спит";
-        else if(strength<=2)
-            return "Устал";
-        else if (hungriness>=7)
-            return "Голоден";
-        else if (cleanliness< 3)
-            return "ужно помыться";
-        return null;
-    }
     public void passTime() {
         hungriness++;
         cleanliness--;
@@ -88,8 +84,8 @@ public class tamagochi {
             happiness--;
         if (cleanliness < 3)
             happiness--;
-        if (hungriness>100)
-            hungriness = 100;
+        if (hungriness>10)
+            hungriness = 10;
         if (cleanliness<0)
             cleanliness=0;
         if (happiness<0)

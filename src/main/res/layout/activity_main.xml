@@ -6,8 +6,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
         android:orientation="vertical">
 
         <LinearLayout
@@ -27,6 +27,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:text="Уровень голода"
+                android:textAlignment="center"
 
                 />
 
@@ -40,21 +41,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="Уровень счастья" />
+                android:text="Уровень счастья"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/text_time"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Время" />
+                android:text="Время"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/text_clean"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="Уровень чистоты" />
+                android:text="Уровень чистоты"
+                android:textAlignment="center" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -66,7 +70,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="Уровень усталости" />
+                android:text="Уровень сил"
+                android:textAlignment="center" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -93,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
+                android:max="10"
                 android:progressTint="#D31818" />
 
             <Space
@@ -105,20 +111,23 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="2" />
+                android:layout_weight="2"
+                android:max="10" />
 
-            <TextView
-                android:id="@+id/time"
+            <Chronometer
+                android:id="@+id/chronos"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="2" />
+                android:layout_weight="2"
+                android:textAlignment="center" />
 
             <ProgressBar
                 android:id="@+id/progressBar_clean"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="2" />
+                android:layout_weight="2"
+                android:max="10" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -130,7 +139,8 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="2" />
+                android:layout_weight="2"
+                android:max="10" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -141,8 +151,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="6">
+        android:layout_height="match_parent"
+        android:layout_weight="0.1"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -154,9 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="21dp"
                 android:layout_weight="1"
-                android:adjustViewBounds="false"
-                android:background="@null"
-                android:contentDescription="@null"
+                android:background="#00FFFFFF"
                 android:onClick="Feed"
                 android:src="@drawable/feed" />
 
@@ -165,9 +174,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="15dp"
                 android:layout_weight="1"
-                android:adjustViewBounds="false"
-                android:background="@null"
-                android:contentDescription="@null"
+                android:background="#00FFFFFF"
+                android:onClick="Pet"
                 android:src="@drawable/pet" />
 
             <ImageButton
@@ -175,40 +183,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_weight="1"
-                android:adjustViewBounds="false"
-                android:background="@null"
-                android:contentDescription="@null"
-                android:src="@drawable/clean" />
+                android:background="#00FFFFFF"
+                android:onClick="Clean"
+                android:src="@drawable/clean"
+
+                />
 
             <ImageButton
                 android:id="@+id/btn_walk"
                 android:layout_width="match_parent"
                 android:layout_height="23dp"
                 android:layout_weight="1"
-                android:adjustViewBounds="false"
-                android:background="@null"
-                android:contentDescription="@null"
-                android:src="@drawable/walk" />
+                android:background="#00FFFFFF"
+                android:onClick="Walk"
+                android:src="@drawable/walk"
+
+                />
 
             <ImageButton
                 android:id="@+id/btn_sleep"
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_weight="1"
-                android:adjustViewBounds="false"
-                android:background="@null"
-                android:contentDescription="@null"
+                android:background="#00FFFFFF"
+                android:onClick="Sleep"
                 android:src="@drawable/sleep" />
 
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-
+        <com.example.fury.MyDraw
+            android:id="@+id/furystandart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="bottom"/>
     </LinearLayout>
 
 

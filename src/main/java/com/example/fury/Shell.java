@@ -1,8 +1,10 @@
 package com.example.fury;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -10,10 +12,9 @@ import android.view.View;
 
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
-public class Shell extends Activity  implements ExecuteFragment{
-    private Fragment fragment;
-    protected Bitmap[] pictures;
+public class Shell extends FragmentActivity {
     protected Bitmap fury;
 
     @Override
@@ -35,18 +36,9 @@ public class Shell extends Activity  implements ExecuteFragment{
 
     }
 
-    @Override
-    public void NumberTransaction(String fragment) {
-
-    }
-
-    @Override
-    public void StartAlphabet(int letter_choose) {
-
-    }
-
-    @Override
-    public void LoadingAlphabet(Bitmap v_story, Bitmap v_char, Bitmap[] pictures, String[] pic_string, boolean[] correct, int pixels) {
+    public void StartGame(View view) {
+        Intent intent = new Intent(Shell.this, MainActivity.class);
+        startActivity(intent);
 
     }
 }
