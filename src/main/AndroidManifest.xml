@@ -29,6 +29,16 @@
             android:clearTaskOnLaunch="true"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".Kitchen"
+            android:clearTaskOnLaunch="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Fridge"
+            android:clearTaskOnLaunch="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
 
     </application>
 

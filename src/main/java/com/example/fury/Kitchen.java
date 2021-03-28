@@ -1,45 +1,37 @@
 package com.example.fury;
 
-
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.*;
+import android.widget.Chronometer;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
-import androidx.annotation.DrawableRes;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+
 import androidx.fragment.app.FragmentActivity;
 
-import android.os.Bundle;
-
-public class MainActivity extends FragmentActivity {
+public class Kitchen extends FragmentActivity {
     Chronometer mChronometer;
-    ImageButton btn_kitchen, btn_pet, btn_clean, btn_walk, btn_sleep;
+    ImageButton btn_feed, btn_pet, btn_clean, btn_walk, btn_sleep;
     tamagochi tamagochi1 = new tamagochi(5, 5, 5, 5);
     ProgressBar pB_hungry, pB_happy, pB_clean, pB_tired;
     TextView text_hungry, text_happy, text_clean, text_tired;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -58,10 +50,7 @@ public class MainActivity extends FragmentActivity {
                             | View.SYSTEM_UI_FLAG_IMMERSIVE);
         }
 
-        setContentView(R.layout.activity_main);
-
-        //Открытие фона из постоянного кэша
-        getWindow().setBackgroundDrawable(new BitmapDrawable(getResources(), new ImageHelper(this).openFile("room.png")));
+        setContentView(R.layout.kitchen_activity);
 
         mChronometer = findViewById(R.id.chronos);
         mChronometer.setCountDown(false);
@@ -81,11 +70,12 @@ public class MainActivity extends FragmentActivity {
 
         });
 
-        btn_kitchen = findViewById(R.id.btn_kitchen);
+        btn_feed = findViewById(R.id.btn_feed);
         btn_pet = findViewById(R.id.btn_pet);
         btn_clean = findViewById(R.id.btn_clean);
         btn_walk = findViewById(R.id.btn_walk);
         btn_sleep = findViewById(R.id.btn_sleep);
+
 
 
         pB_hungry = findViewById(R.id.progressBar_hungry);
@@ -105,18 +95,14 @@ public class MainActivity extends FragmentActivity {
 
 
 
-
-
-
     }
-
 
     public void Kitchen(View view) {
         /*tamagochi1.feed();
         pB_hungry.setProgress(tamagochi1.getHungriness());
         pB_happy.setProgress(tamagochi1.getHappiness());
         pB_tired.setProgress(tamagochi1.getStrength());*/
-        Intent intent = new Intent(MainActivity.this, Kitchen.class);
+        Intent intent = new Intent(Kitchen.this, Kitchen.class);
         startActivity(intent);
 
     }
@@ -145,5 +131,9 @@ public class MainActivity extends FragmentActivity {
         pB_tired.setProgress(tamagochi1.getStrength());
     }
 
+    public void onFridge(View view) {
 
+        Intent intent = new Intent(Kitchen.this, Fridge.class);
+        startActivity(intent);
+    }
 }
