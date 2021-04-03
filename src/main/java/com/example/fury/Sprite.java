@@ -47,6 +47,7 @@ public class Sprite {
         Paint p = new Paint();
         Rect destination = new Rect(0, 0, 550, 600);
         canvas.drawBitmap(bitmap, frames.get(currentFrame), destination, p);
+
     }
 
 

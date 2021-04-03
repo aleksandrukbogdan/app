@@ -35,20 +35,10 @@ import android.os.Bundle;
 
 public class MainActivity extends FragmentActivity {
 
-    private String version;
-
-    int incFuel = 0;
-    final String FUELBAR = "fuelBar";
-
-
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
-
     Chronometer mChronometer;
     ImageButton btn_kitchen, btn_pet, btn_clean, btn_walk, btn_sleep;
     tamagochi tamagochi1 = new tamagochi(5, 5, 5, 5);
     ProgressBar pB_hungry, pB_happy, pB_clean, pB_tired;
-    TextView text_hungry, text_happy, text_clean, text_tired;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,7 +104,7 @@ public class MainActivity extends FragmentActivity {
         });
 
         btn_kitchen = findViewById(R.id.btn_kitchen);
-        btn_pet = findViewById(R.id.btn_pet);
+        /*btn_pet = findViewById(R.id.btn_pet);*/
         btn_clean = findViewById(R.id.btn_clean);
         btn_walk = findViewById(R.id.btn_walk);
         btn_sleep = findViewById(R.id.btn_sleep);
@@ -130,10 +120,6 @@ public class MainActivity extends FragmentActivity {
         pB_clean.setProgress(tamagochi1.getCleanliness());
         pB_tired.setProgress(tamagochi1.getStrength());
 
-        text_hungry = findViewById(R.id.text_hungry);
-        text_happy = findViewById(R.id.text_happy);
-        text_clean = findViewById(R.id.text_clean);
-        text_tired = findViewById(R.id.text_tired);
 
 
 
@@ -141,33 +127,6 @@ public class MainActivity extends FragmentActivity {
 
 
     }
-
-
-    /*@Override
-    protected void onPause() {
-        super.onPause();
-        ProgressBar fuelBar = (ProgressBar) findViewById(R.id.progressBar_hungry);
-        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(FUELBAR, fuelBar.getProgress());
-        editor.commit();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        ProgressBar fuelBar = (ProgressBar) findViewById(R.id.progressBar_hungry);
-        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        incFuel = sharedPref.getInt(FUELBAR, 0);
-        fuelBar.setProgress(incFuel);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }*/
-
-
 
     public void Kitchen(View view) {
         /*tamagochi1.feed();
@@ -175,16 +134,15 @@ public class MainActivity extends FragmentActivity {
         pB_happy.setProgress(tamagochi1.getHappiness());
         pB_tired.setProgress(tamagochi1.getStrength());*/
         Intent intent = new Intent(MainActivity.this, Kitchen.class);
-        intent.putExtra("pBH", pB_hungry.getProgressTintMode());
         startActivity(intent);
 
     }
 
-    public void Pet(View view) {
+    /*public void Pet(View view) {
         tamagochi1.pet();
         pB_happy.setProgress(tamagochi1.getHappiness());
 
-    }
+    }*/
 
     public void Clean(View view) {
         tamagochi1.clean();
@@ -196,6 +154,7 @@ public class MainActivity extends FragmentActivity {
         pB_tired.setProgress(tamagochi1.getStrength());
         pB_happy.setProgress(tamagochi1.getHappiness());
         pB_clean.setProgress(tamagochi1.getCleanliness());
+        startActivity(new Intent(MainActivity.this, MainActivity.class));
 
     }
 

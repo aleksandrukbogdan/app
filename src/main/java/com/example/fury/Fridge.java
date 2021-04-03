@@ -21,10 +21,10 @@ import androidx.fragment.app.FragmentActivity;
 public class Fridge extends FragmentActivity {
 
     Chronometer mChronometer;
-    ImageButton btn_kitchen, btn_pet, btn_clean, btn_walk, btn_sleep;
+    ImageButton btn_kitchen, btn_clean, btn_walk, btn_sleep;
     tamagochi tamagochi1 = new tamagochi(5, 5, 5, 5);
     ProgressBar pB_hungry, pB_happy, pB_clean, pB_tired;
-    TextView text_hungry, text_happy, text_clean, text_tired;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +66,7 @@ public class Fridge extends FragmentActivity {
         });
 
         btn_kitchen = findViewById(R.id.btn_kitchen);
-        btn_pet = findViewById(R.id.btn_pet);
+        /*btn_pet = findViewById(R.id.btn_pet);*/
         btn_clean = findViewById(R.id.btn_clean);
         btn_walk = findViewById(R.id.btn_walk);
         btn_sleep = findViewById(R.id.btn_sleep);
@@ -81,11 +81,6 @@ public class Fridge extends FragmentActivity {
         pB_happy.setProgress(tamagochi1.getHappiness());
         pB_clean.setProgress(tamagochi1.getCleanliness());
         pB_tired.setProgress(tamagochi1.getStrength());
-
-        text_hungry = findViewById(R.id.text_hungry);
-        text_happy = findViewById(R.id.text_happy);
-        text_clean = findViewById(R.id.text_clean);
-        text_tired = findViewById(R.id.text_tired);
 
 
 
@@ -105,11 +100,11 @@ public class Fridge extends FragmentActivity {
 
     }
 
-    public void Pet(View view) {
+    /*public void Pet(View view) {
         tamagochi1.pet();
         pB_happy.setProgress(tamagochi1.getHappiness());
 
-    }
+    }*/
 
     public void Clean(View view) {
         tamagochi1.clean();
@@ -121,6 +116,7 @@ public class Fridge extends FragmentActivity {
         pB_tired.setProgress(tamagochi1.getStrength());
         pB_happy.setProgress(tamagochi1.getHappiness());
         pB_clean.setProgress(tamagochi1.getCleanliness());
+        startActivity(new Intent(Fridge.this, MainActivity.class));
 
     }
 

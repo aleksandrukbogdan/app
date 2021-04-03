@@ -17,104 +17,6 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/text_hungry"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="Уровень голода"
-                android:textAlignment="center"
-
-                />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/text_happy"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="Уровень счастья"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/text_time"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Время"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/text_clean"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="Уровень чистоты"
-                android:textAlignment="center" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/text_tired"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="Уровень сил"
-                android:textAlignment="center" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <!--<ProgressBar
-                android:id="@+id/progressBar_hungry"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:max="10"
-                android:progressTint="#D31818" />-->
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <ProgressBar
-                android:id="@+id/progressBar_happy"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:max="10" />
-
             <Chronometer
                 android:id="@+id/chronos"
                 android:layout_width="wrap_content"
@@ -122,31 +24,6 @@
                 android:layout_weight="2"
                 android:textAlignment="center" />
 
-            <ProgressBar
-                android:id="@+id/progressBar_clean"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:max="10" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <ProgressBar
-                android:id="@+id/progressBar_tired"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:max="10" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
         </LinearLayout>
     </LinearLayout>
 
@@ -162,10 +39,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:layout_weight="1"
             android:layout_marginLeft="105dp"
+            android:layout_marginTop="60dp"
             android:layout_marginRight="280dp"
-            android:layout_marginTop="60dp" />
+            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -179,12 +56,37 @@
                 android:orientation="vertical">
 
                 <ProgressBar
+                    android:id="@+id/progressBar_happy"
+                    style="@style/Widget.ProgressBar.Vertical"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:max="10"
+                    android:progressTint="#80ff1f" />
+
+                <ImageButton
+                    android:id="@+id/btn_walk"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="#00FFFFFF"
+                    android:onClick="Walk"
+                    android:src="@drawable/walk" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ProgressBar
                     android:id="@+id/progressBar_hungry"
                     style="@style/Widget.ProgressBar.Vertical"
                     android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_gravity="center"
-
                     android:max="10"
                     android:progressTint="#80ff1f" />
 
@@ -200,44 +102,69 @@
 
             </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <ImageButton
+                <ProgressBar
+                    android:id="@+id/progressBar_clean"
+                    style="@style/Widget.ProgressBar.Vertical"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:max="10"
+                    android:progressTint="#80ff1f" />
+
+                <ImageButton
+                    android:id="@+id/btn_clean"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="#00FFFFFF"
+                    android:onClick="Clean"
+                    android:src="@drawable/clean" />
+
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/progressBar_tired"
+                    style="@style/Widget.ProgressBar.Vertical"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:max="10"
+                    android:progressTint="#80ff1f" />
+
+                <ImageButton
+                    android:id="@+id/btn_sleep"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="#00FFFFFF"
+                    android:onClick="Sleep"
+                    android:src="@drawable/sleep" />
+
+
+            </FrameLayout>
+
+
+            <!--<ImageButton
                 android:id="@+id/btn_pet"
                 android:layout_width="match_parent"
                 android:layout_height="15dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="Pet"
-                android:src="@drawable/pet" />
-
-            <ImageButton
-                android:id="@+id/btn_clean"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:background="#00FFFFFF"
-                android:onClick="Clean"
-                android:src="@drawable/clean" />
-
-            <ImageButton
-                android:id="@+id/btn_walk"
-                android:layout_width="match_parent"
-                android:layout_height="23dp"
-                android:layout_weight="1"
-                android:background="#00FFFFFF"
-                android:onClick="Walk"
-                android:src="@drawable/walk"
-
-                />
-
-            <ImageButton
-                android:id="@+id/btn_sleep"
-                android:layout_width="match_parent"
-                android:layout_height="26dp"
-                android:layout_weight="1"
-                android:background="#00FFFFFF"
-                android:onClick="Sleep"
-                android:src="@drawable/sleep" />
+                android:src="@drawable/pet" />-->
 
 
         </LinearLayout>
