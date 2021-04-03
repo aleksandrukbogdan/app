@@ -8,7 +8,9 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class MyDraw extends View {
@@ -25,7 +27,7 @@ public class MyDraw extends View {
         int w = b.getWidth() / 4;
         int h = b.getHeight() / 2;
 
-        Rect firstFrame = new Rect(getWidth()/2, getHeight()/2, w, h);
+        Rect firstFrame = new Rect(0, 0, w, h);
         playerFury = new Sprite(firstFrame, b);
 
         //скорость перехода от одного слайда к другому
@@ -45,6 +47,11 @@ public class MyDraw extends View {
 
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Toast.makeText(getContext(),"I cum", Toast.LENGTH_SHORT).show();
+        return false;
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {

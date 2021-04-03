@@ -19,14 +19,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 public class Kitchen extends FragmentActivity {
     Chronometer mChronometer;
-    ImageButton btn_feed, btn_pet, btn_clean, btn_walk, btn_sleep;
+    ImageButton btn_kitchen, btn_pet, btn_clean, btn_walk, btn_sleep;
     tamagochi tamagochi1 = new tamagochi(5, 5, 5, 5);
     ProgressBar pB_hungry, pB_happy, pB_clean, pB_tired;
     TextView text_hungry, text_happy, text_clean, text_tired;
+    private boolean isActivityShowing = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +72,7 @@ public class Kitchen extends FragmentActivity {
 
         });
 
-        btn_feed = findViewById(R.id.btn_feed);
+        btn_kitchen = findViewById(R.id.btn_kitchen);
         btn_pet = findViewById(R.id.btn_pet);
         btn_clean = findViewById(R.id.btn_clean);
         btn_walk = findViewById(R.id.btn_walk);
@@ -83,7 +85,11 @@ public class Kitchen extends FragmentActivity {
         pB_clean = findViewById(R.id.progressBar_clean);
         pB_tired = findViewById(R.id.progressBar_tired);
 
-        pB_hungry.setProgress(tamagochi1.getHungriness());
+        //pB_hungry.setProgress(tamagochi1.getHungriness());
+        Bundle argument = getIntent().getExtras();
+        pB_hungry.setProgress( argument.getInt("pBH"));
+        
+
         pB_happy.setProgress(tamagochi1.getHappiness());
         pB_clean.setProgress(tamagochi1.getCleanliness());
         pB_tired.setProgress(tamagochi1.getStrength());
@@ -96,6 +102,8 @@ public class Kitchen extends FragmentActivity {
 
 
     }
+
+
 
     public void Kitchen(View view) {
         /*tamagochi1.feed();
@@ -110,6 +118,7 @@ public class Kitchen extends FragmentActivity {
     public void Pet(View view) {
         tamagochi1.pet();
         pB_happy.setProgress(tamagochi1.getHappiness());
+        startActivity(new Intent(Kitchen.this, MainActivity.class));
 
     }
 
@@ -136,4 +145,6 @@ public class Kitchen extends FragmentActivity {
         Intent intent = new Intent(Kitchen.this, Fridge.class);
         startActivity(intent);
     }
+
+
 }

@@ -6,8 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -23,6 +26,7 @@ import android.view.WindowManager;
 import android.widget.*;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -30,12 +34,21 @@ import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
 
 public class MainActivity extends FragmentActivity {
+
+    private String version;
+
+    int incFuel = 0;
+    final String FUELBAR = "fuelBar";
+
+
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+
     Chronometer mChronometer;
     ImageButton btn_kitchen, btn_pet, btn_clean, btn_walk, btn_sleep;
     tamagochi tamagochi1 = new tamagochi(5, 5, 5, 5);
     ProgressBar pB_hungry, pB_happy, pB_clean, pB_tired;
     TextView text_hungry, text_happy, text_clean, text_tired;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +71,29 @@ public class MainActivity extends FragmentActivity {
                             | View.SYSTEM_UI_FLAG_IMMERSIVE);
         }
 
-        setContentView(R.layout.activity_main);
+        /*//Проверка целостности БД
+        SQLiteDatabase sdb;
+        sdb = new Database(this).getReadableDatabase();
+        Cursor cursor = sdb.query("Tamagochi", new String[]{Database.HUNGRINESS_COLUMN,
+                Database.HAPPINESS_COLUMN, Database.CLEANLINESS_COLUMN, Database.STRENGTH_COLUMN}, null, null, null, null, null);
+        try {
+            version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException ignored) {
+        }
+        //Проверка актуальной версии. Если не равно - значит было установлено обновление и следует запустить предзагрузку
 
-        //Открытие фона из постоянного кэша
-        getWindow().setBackgroundDrawable(new BitmapDrawable(getResources(), new ImageHelper(this).openFile("room.png")));
+            cursor.close();
+            sdb.close();*/
+
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+            //Если всё удачно, запуск активности
+            setContentView(R.layout.activity_main);
+            //Открытие фона из постоянного кэша
+            getWindow().setBackgroundDrawable(new BitmapDrawable(getResources(), new ImageHelper(this).openFile("room.png")));
+
+
 
         mChronometer = findViewById(R.id.chronos);
         mChronometer.setCountDown(false);
@@ -111,12 +143,39 @@ public class MainActivity extends FragmentActivity {
     }
 
 
+    /*@Override
+    protected void onPause() {
+        super.onPause();
+        ProgressBar fuelBar = (ProgressBar) findViewById(R.id.progressBar_hungry);
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt(FUELBAR, fuelBar.getProgress());
+        editor.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ProgressBar fuelBar = (ProgressBar) findViewById(R.id.progressBar_hungry);
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        incFuel = sharedPref.getInt(FUELBAR, 0);
+        fuelBar.setProgress(incFuel);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }*/
+
+
+
     public void Kitchen(View view) {
         /*tamagochi1.feed();
         pB_hungry.setProgress(tamagochi1.getHungriness());
         pB_happy.setProgress(tamagochi1.getHappiness());
         pB_tired.setProgress(tamagochi1.getStrength());*/
         Intent intent = new Intent(MainActivity.this, Kitchen.class);
+        intent.putExtra("pBH", pB_hungry.getProgressTintMode());
         startActivity(intent);
 
     }
