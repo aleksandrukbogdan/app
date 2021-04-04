@@ -49,7 +49,7 @@ public class MyDraw extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Toast.makeText(getContext(),"I cum", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(),"I come", Toast.LENGTH_SHORT).show();
         return false;
     }
 
