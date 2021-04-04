@@ -63,10 +63,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="0.8">
+            android:orientation="vertical">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -84,13 +83,13 @@
                     android:progressTint="#80ff1f" />
 
                 <ImageButton
-                    android:id="@+id/btn_walk"
+                    android:id="@+id/btn_room"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:background="#00FFFFFF"
-                    android:onClick="Walk"
-                    android:src="@drawable/walk" />
+                    android:onClick="Room"
+                    android:src="@drawable/roomlogo" />
 
             </FrameLayout>
 
@@ -137,13 +136,13 @@
                     android:progressTint="#80ff1f" />
 
                 <ImageButton
-                    android:id="@+id/btn_clean"
+                    android:id="@+id/btn_bath"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:background="#00FFFFFF"
-                    android:onClick="Clean"
-                    android:src="@drawable/clean" />
+                    android:onClick="Bath"
+                    android:src="@drawable/bathlogo" />
 
 
             </FrameLayout>
@@ -170,7 +169,7 @@
                     android:layout_gravity="center"
                     android:background="#00FFFFFF"
                     android:onClick="Sleep"
-                    android:src="@drawable/sleep" />
+                    android:src="@drawable/sleeplogo" />
 
 
             </FrameLayout>

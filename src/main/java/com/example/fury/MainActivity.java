@@ -36,7 +36,7 @@ import android.os.Bundle;
 public class MainActivity extends FragmentActivity {
 
     Chronometer mChronometer;
-    ImageButton btn_kitchen, btn_pet, btn_clean, btn_walk, btn_sleep;
+    ImageButton btn_kitchen, btn_pet, btn_bath, btn_room, btn_sleep;
     tamagochi tamagochi1 = new tamagochi(5, 5, 5, 5);
     ProgressBar pB_hungry, pB_happy, pB_clean, pB_tired;
 
@@ -103,10 +103,10 @@ public class MainActivity extends FragmentActivity {
 
         });
 
+        btn_room = findViewById(R.id.btn_room);
         btn_kitchen = findViewById(R.id.btn_kitchen);
         /*btn_pet = findViewById(R.id.btn_pet);*/
-        btn_clean = findViewById(R.id.btn_clean);
-        btn_walk = findViewById(R.id.btn_walk);
+        btn_bath = findViewById(R.id.btn_bath);
         btn_sleep = findViewById(R.id.btn_sleep);
 
 
@@ -128,6 +128,15 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+    public void Room(View view) {
+        tamagochi1.walk();
+        pB_tired.setProgress(tamagochi1.getStrength());
+        pB_happy.setProgress(tamagochi1.getHappiness());
+        pB_clean.setProgress(tamagochi1.getCleanliness());
+        startActivity(new Intent(MainActivity.this, MainActivity.class));
+
+    }
+
     public void Kitchen(View view) {
         /*tamagochi1.feed();
         pB_hungry.setProgress(tamagochi1.getHungriness());
@@ -144,18 +153,9 @@ public class MainActivity extends FragmentActivity {
 
     }*/
 
-    public void Clean(View view) {
+    public void Bath(View view) {
         tamagochi1.clean();
         pB_clean.setProgress(tamagochi1.getCleanliness());
-    }
-
-    public void Walk(View view) {
-        tamagochi1.walk();
-        pB_tired.setProgress(tamagochi1.getStrength());
-        pB_happy.setProgress(tamagochi1.getHappiness());
-        pB_clean.setProgress(tamagochi1.getCleanliness());
-        startActivity(new Intent(MainActivity.this, MainActivity.class));
-
     }
 
     public void Sleep(View view) {
