@@ -1,6 +1,5 @@
 package com.example.fury;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -14,31 +13,27 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
-
-import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
-public class Kitchen extends FragmentActivity {
+public class Bath extends FragmentActivity {
+
     Chronometer mChronometer;
-    ImageButton btn_kitchen, btn_bath, btn_room, btn_sleep;
+    ImageButton btn_kitchen, btn_pet, btn_bath, btn_room, btn_sleep;
     tamagochi tamagochi1 = new tamagochi(5, 5, 5, 5);
     ProgressBar pB_hungry, pB_happy, pB_clean, pB_tired;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
-        //Если Android 4.4 -  включить IMMERSIVE MODE
+        //Если Android 4.4 - включить  IMMERSIVE MODE
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().getDecorView().setSystemUiVisibility(
@@ -50,7 +45,8 @@ public class Kitchen extends FragmentActivity {
                             | View.SYSTEM_UI_FLAG_IMMERSIVE);
         }
 
-        setContentView(R.layout.kitchen_activity);
+        //Если всё удачно, запуск активности
+        setContentView(R.layout.bath_activity);
 
         mChronometer = findViewById(R.id.chronos);
         mChronometer.setCountDown(false);
@@ -70,12 +66,11 @@ public class Kitchen extends FragmentActivity {
 
         });
 
+        btn_room = findViewById(R.id.btn_room);
         btn_kitchen = findViewById(R.id.btn_kitchen);
         /*btn_pet = findViewById(R.id.btn_pet);*/
         btn_bath = findViewById(R.id.btn_bath);
-        btn_room = findViewById(R.id.btn_room);
         btn_sleep = findViewById(R.id.btn_sleep);
-
 
 
         pB_hungry = findViewById(R.id.progressBar_hungry);
@@ -90,6 +85,8 @@ public class Kitchen extends FragmentActivity {
 
 
 
+
+
     }
 
     public void Room(View view) {
@@ -97,7 +94,7 @@ public class Kitchen extends FragmentActivity {
         pB_tired.setProgress(tamagochi1.getStrength());
         pB_happy.setProgress(tamagochi1.getHappiness());
         pB_clean.setProgress(tamagochi1.getCleanliness());
-        startActivity(new Intent(Kitchen.this, MainActivity.class));
+        startActivity(new Intent(Bath.this, MainActivity.class));
 
     }
 
@@ -106,7 +103,7 @@ public class Kitchen extends FragmentActivity {
         pB_hungry.setProgress(tamagochi1.getHungriness());
         pB_happy.setProgress(tamagochi1.getHappiness());
         pB_tired.setProgress(tamagochi1.getStrength());*/
-        Intent intent = new Intent(Kitchen.this, Kitchen.class);
+        Intent intent = new Intent(Bath.this, Kitchen.class);
         startActivity(intent);
 
     }
@@ -114,25 +111,19 @@ public class Kitchen extends FragmentActivity {
     /*public void Pet(View view) {
         tamagochi1.pet();
         pB_happy.setProgress(tamagochi1.getHappiness());
-        startActivity(new Intent(Kitchen.this, MainActivity.class));
 
     }*/
 
-
     public void Bath(View view) {
-        tamagochi1.clean();
-        pB_clean.setProgress(tamagochi1.getCleanliness());
+        /*tamagochi1.clean();
+        pB_clean.setProgress(tamagochi1.getCleanliness());*/
+        startActivity(new Intent(Bath.this, Bath.class));
+
     }
 
     public void Sleep(View view) {
         tamagochi1.sleep();
         pB_tired.setProgress(tamagochi1.getStrength());
-    }
-
-    public void onFridge(View view) {
-
-        Intent intent = new Intent(Kitchen.this, Fridge.class);
-        startActivity(intent);
     }
 
 

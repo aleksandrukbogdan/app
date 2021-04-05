@@ -6,7 +6,7 @@ public class tamagochi {
     private int strength = 0;
     private int cleanliness = 0;
 
-    public tamagochi(int hungriness, int happiness, int strength, int cleanliness) {
+    public tamagochi( int hungriness, int happiness, int strength, int cleanliness) {
         this.hungriness = hungriness;
         this.happiness = happiness;
         this.strength = strength;

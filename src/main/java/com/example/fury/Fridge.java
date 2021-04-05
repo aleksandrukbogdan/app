@@ -51,7 +51,7 @@ public class Fridge extends FragmentActivity {
         mChronometer.setCountDown(false);
         mChronometer.setBase(SystemClock.elapsedRealtime());
         mChronometer.start();
-        mChronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+        mChronometer.setOnChronometerTickListener( new Chronometer.OnChronometerTickListener() {
             @Override
             public void onChronometerTick(Chronometer chronometer) {
 

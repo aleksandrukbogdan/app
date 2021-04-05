@@ -49,7 +49,7 @@ public class MainActivity extends FragmentActivity {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
-        //Если Android 4.4 - включить IMMERSIVE MODE
+        //Если Android 4.4 - включить  IMMERSIVE MODE
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().getDecorView().setSystemUiVisibility(
@@ -81,7 +81,6 @@ public class MainActivity extends FragmentActivity {
             //Если всё удачно, запуск активности
             setContentView(R.layout.activity_main);
             //Открытие фона из постоянного кэша
-            getWindow().setBackgroundDrawable(new BitmapDrawable(getResources(), new ImageHelper(this).openFile("room.png")));
 
 
 
@@ -154,8 +153,10 @@ public class MainActivity extends FragmentActivity {
     }*/
 
     public void Bath(View view) {
-        tamagochi1.clean();
-        pB_clean.setProgress(tamagochi1.getCleanliness());
+        /*tamagochi1.clean();
+        pB_clean.setProgress(tamagochi1.getCleanliness());*/
+        startActivity(new Intent(MainActivity.this, Bath.class));
+
     }
 
     public void Sleep(View view) {
@@ -164,4 +165,7 @@ public class MainActivity extends FragmentActivity {
     }
 
 
+    public void onGame(View view) {
+        Toast.makeText(getApplicationContext(), "Play", Toast.LENGTH_SHORT).show();
+    }
 }

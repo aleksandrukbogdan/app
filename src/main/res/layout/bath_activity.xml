@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/kit"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bath">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,33 +35,15 @@
         android:orientation="horizontal">
 
 
-        <LinearLayout
+        <com.example.fury.MyDraw
+            android:id="@+id/furystandart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="0.1">
-
-            <ImageButton
-                android:id="@+id/onFridge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="150dp"
-                android:background="@drawable/button_background"
-                android:onClick="onFridge"
-                android:src="@drawable/fridge"  />
-
-            <com.example.fury.MyDraw
-                android:id="@+id/furystandart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
-                android:layout_marginLeft="105dp"
-                android:layout_marginRight="150dp"
-                android:layout_marginTop="60dp" />
-
-        </LinearLayout>
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="105dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="280dp"
+            android:layout_weight="1"  />
 
         <LinearLayout
             android:layout_width="wrap_content"

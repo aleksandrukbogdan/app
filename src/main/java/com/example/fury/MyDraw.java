@@ -30,7 +30,7 @@ public class MyDraw extends View {
         Rect firstFrame = new Rect(0, 0, w, h);
         playerFury = new Sprite(firstFrame, b);
 
-        //скорость перехода от одного слайда к другому
+        //скорость перехода от одного слайда  к другому
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 4; j++) {

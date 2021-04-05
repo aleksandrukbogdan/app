@@ -40,6 +40,12 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
 
+        <activity
+            android:name=".Bath"
+            android:clearTaskOnLaunch="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+
     </application>
 
 </manifest>

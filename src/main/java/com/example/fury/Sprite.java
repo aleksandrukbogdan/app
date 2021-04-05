@@ -27,7 +27,7 @@ public class Sprite {
     }
 
 
-    public void addFrame(Rect frame) {
+    public void addFrame( Rect frame) {
         frames.add(frame);
     }
 

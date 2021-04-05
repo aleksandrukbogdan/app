@@ -26,7 +26,7 @@ public class ImageHelper {
                 bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
             }
         } catch (IOException e) {
-            //Если картинки не существует - открыть активность предзагрузки
+            //Если картинки  не существует - открыть активность предзагрузки
             Intent intent = new Intent(context.getApplicationContext(), Preloading.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);

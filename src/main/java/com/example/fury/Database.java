@@ -26,7 +26,7 @@ public class Database extends SQLiteOpenHelper implements BaseColumns {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate( SQLiteDatabase db) {
         String query = "CREATE TABLE " + DATABASE_TABLE + " (" +
                 HUNGRINESS_COLUMN + " VARCHAR(10), " +
                 HAPPINESS_COLUMN + " VARCHAR(10), " +

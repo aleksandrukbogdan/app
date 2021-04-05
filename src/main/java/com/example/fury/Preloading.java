@@ -38,7 +38,7 @@ public class Preloading extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Если Android 4.4 - включить IMMERSIVE MODE
+        //Если Android 4.4 - включить  IMMERSIVE MODE
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().getDecorView().setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
