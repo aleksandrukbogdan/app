@@ -118,29 +118,14 @@ public class MainActivity extends FragmentActivity {
         pB_happy.setProgress(tamagochi1.getHappiness());
         pB_clean.setProgress(tamagochi1.getCleanliness());
         pB_tired.setProgress(tamagochi1.getStrength());
-
-
-
-
-
-
-
     }
 
     public void Room(View view) {
-        tamagochi1.walk();
-        pB_tired.setProgress(tamagochi1.getStrength());
-        pB_happy.setProgress(tamagochi1.getHappiness());
-        pB_clean.setProgress(tamagochi1.getCleanliness());
         startActivity(new Intent(MainActivity.this, MainActivity.class));
 
     }
 
     public void Kitchen(View view) {
-        /*tamagochi1.feed();
-        pB_hungry.setProgress(tamagochi1.getHungriness());
-        pB_happy.setProgress(tamagochi1.getHappiness());
-        pB_tired.setProgress(tamagochi1.getStrength());*/
         Intent intent = new Intent(MainActivity.this, Kitchen.class);
         startActivity(intent);
 
@@ -153,23 +138,26 @@ public class MainActivity extends FragmentActivity {
     }*/
 
     public void Bath(View view) {
-        /*tamagochi1.clean();
-        pB_clean.setProgress(tamagochi1.getCleanliness());*/
         startActivity(new Intent(MainActivity.this, Bath.class));
 
     }
 
     public void Sleep(View view) {
-        tamagochi1.sleep();
-        pB_tired.setProgress(tamagochi1.getStrength());
+        /*tamagochi1.sleep();
+        pB_tired.setProgress(tamagochi1.getStrength());*/
     }
 
 
     public void onGame(View view) {
-        Toast.makeText(getApplicationContext(), "Play", Toast.LENGTH_SHORT).show();
+        tamagochi1.walk();
+        pB_tired.setProgress(tamagochi1.getStrength());
+        pB_happy.setProgress(tamagochi1.getHappiness());
+        pB_clean.setProgress(tamagochi1.getCleanliness());
     }
 
     public void onFury(View view) {
         Toast.makeText(getApplicationContext(),"I come", Toast.LENGTH_SHORT).show();
+        tamagochi1.pet();
+        pB_happy.setProgress(tamagochi1.getHappiness());
     }
 }

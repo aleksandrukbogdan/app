@@ -34,16 +34,67 @@
         android:layout_weight="0.1"
         android:orientation="horizontal">
 
+        <FrameLayout
+            android:layout_width="530dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="90dp"
 
-        <com.example.fury.MyDraw
-            android:id="@+id/furystandart"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="105dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginRight="280dp"
-            android:layout_weight="1"  />
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btn_clean"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:onClick="onClean"
+                android:src="@drawable/btn_invis"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:text="Помыться"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="-180dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1">
+
+            <com.example.fury.MyDraw
+                android:id="@+id/furystandart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"/>
+
+            <ImageButton
+                android:id="@+id/btn_fury"
+                android:layout_width="100dp"
+                android:layout_height="270dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="40dp"
+                android:background="#00FFFFFF"
+                android:onClick="onFury"
+                android:src="@drawable/btn_invis" />
+
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"

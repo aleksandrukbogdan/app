@@ -14,6 +14,7 @@ import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.fragment.app.FragmentActivity;
@@ -89,12 +90,12 @@ public class Fridge extends FragmentActivity {
 
     }
 
+    public void Room(View view) {
+        startActivity(new Intent(Fridge.this, MainActivity.class));
+
+    }
 
     public void Kitchen(View view) {
-        /*tamagochi1.feed();
-        pB_hungry.setProgress(tamagochi1.getHungriness());
-        pB_happy.setProgress(tamagochi1.getHappiness());
-        pB_tired.setProgress(tamagochi1.getStrength());*/
         Intent intent = new Intent(Fridge.this, Kitchen.class);
         startActivity(intent);
 
@@ -106,24 +107,16 @@ public class Fridge extends FragmentActivity {
 
     }*/
 
-    public void Room(View view) {
-        tamagochi1.walk();
-        pB_tired.setProgress(tamagochi1.getStrength());
-        pB_happy.setProgress(tamagochi1.getHappiness());
-        pB_clean.setProgress(tamagochi1.getCleanliness());
-        startActivity(new Intent(Fridge.this, MainActivity.class));
 
-    }
 
 
     public void Bath(View view) {
-        tamagochi1.clean();
-        pB_clean.setProgress(tamagochi1.getCleanliness());
+        startActivity(new Intent(Fridge.this, Bath.class));
     }
 
     public void Sleep(View view) {
-        tamagochi1.sleep();
-        pB_tired.setProgress(tamagochi1.getStrength());
+        /*tamagochi1.sleep();
+        pB_tired.setProgress(tamagochi1.getStrength());*/
     }
 
     public void Feed(View view) {
@@ -136,5 +129,11 @@ public class Fridge extends FragmentActivity {
     public void Exit(View view) {
         Intent intent = new Intent(Fridge.this, Kitchen.class);
         startActivity(intent);
+    }
+
+    public void onFury(View view) {
+        Toast.makeText(getApplicationContext(),"I come", Toast.LENGTH_SHORT).show();
+        tamagochi1.pet();
+        pB_happy.setProgress(tamagochi1.getHappiness());
     }
 }

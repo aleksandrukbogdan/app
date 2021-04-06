@@ -50,7 +50,36 @@
                 android:onClick="onFridge"
                 android:src="@drawable/fridge"  />
 
-            <com.example.fury.MyDraw
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="180dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1">
+
+                <com.example.fury.MyDraw
+                    android:id="@+id/furystandart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"/>
+
+                <ImageButton
+                    android:id="@+id/btn_fury"
+                    android:layout_width="100dp"
+                    android:layout_height="240dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="40dp"
+                    android:background="#00FFFFFF"
+                    android:onClick="onFury"
+                    android:src="@drawable/btn_invis" />
+
+            </FrameLayout>
+
+            <!--<com.example.fury.MyDraw
                 android:id="@+id/furystandart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -58,7 +87,7 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="105dp"
                 android:layout_marginRight="150dp"
-                android:layout_marginTop="60dp" />
+                android:layout_marginTop="60dp" />-->
 
         </LinearLayout>
 
