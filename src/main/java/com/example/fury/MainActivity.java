@@ -168,4 +168,8 @@ public class MainActivity extends FragmentActivity {
     public void onGame(View view) {
         Toast.makeText(getApplicationContext(), "Play", Toast.LENGTH_SHORT).show();
     }
+
+    public void onFury(View view) {
+        Toast.makeText(getApplicationContext(),"I come", Toast.LENGTH_SHORT).show();
+    }
 }

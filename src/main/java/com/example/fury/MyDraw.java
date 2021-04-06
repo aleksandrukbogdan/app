@@ -47,12 +47,12 @@ public class MyDraw extends View {
 
     }
 
-    @Override
+    /*@Override
     public boolean onTouchEvent(MotionEvent event) {
         Toast.makeText(getContext(),"I come", Toast.LENGTH_SHORT).show();
         return false;
     }
-
+*/
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
