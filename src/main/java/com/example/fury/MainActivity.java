@@ -145,6 +145,7 @@ public class MainActivity extends FragmentActivity {
     public void Sleep(View view) {
         /*tamagochi1.sleep();
         pB_tired.setProgress(tamagochi1.getStrength());*/
+        startActivity(new Intent(MainActivity.this, SleepRoom.class));
     }
 
 

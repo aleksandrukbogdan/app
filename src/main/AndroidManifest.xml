@@ -11,6 +11,8 @@
         android:theme="@style/Theme.Fury">
         <activity
             android:name=".Shell"
+            android:clearTaskOnLaunch="true"
+            android:launchMode="singleTask"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +44,12 @@
 
         <activity
             android:name=".Bath"
+            android:clearTaskOnLaunch="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".SleepRoom"
             android:clearTaskOnLaunch="true"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />

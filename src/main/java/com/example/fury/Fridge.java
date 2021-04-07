@@ -117,6 +117,7 @@ public class Fridge extends FragmentActivity {
     public void Sleep(View view) {
         /*tamagochi1.sleep();
         pB_tired.setProgress(tamagochi1.getStrength());*/
+        startActivity(new Intent(Fridge.this, SleepRoom.class));
     }
 
     public void Feed(View view) {

@@ -115,6 +115,7 @@ public class Bath extends FragmentActivity {
     public void Sleep(View view) {
         /*tamagochi1.sleep();
         pB_tired.setProgress(tamagochi1.getStrength());*/
+        startActivity(new Intent(Bath.this, SleepRoom.class));
     }
 
 
